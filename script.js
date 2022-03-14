@@ -23,6 +23,9 @@ function makeSquares(size){
         const square = document.createElement("div")
         square.classList.add("square")
         container.appendChild(square)
+        square.addEventListener("click", function (e) {
+            startDrawing(e)
+        })
         square.addEventListener("mouseenter", function (e) {
             if (move === true){
                 startDrawing(e)
