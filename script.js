@@ -1,13 +1,38 @@
 //script
 
 const container = document.querySelector(".container")
+let move = false
+var size = 16
+makeSquares(size)
 
-function makeSquares(){
-    for (let i = 0; i < 256; i++){
+document.addEventListener("mousedown", () => {
+    move = true
+})
+
+document.addEventListener("mouseup", () => {
+    move = false
+})
+
+function boardSize() {
+    size = parseInt(Math.floor(prompt("Pick a number between 1-100.")))
+    makeSquares(size)
+}
+
+function makeSquares(size){
+    for (let i = 0; i < (size * size); i++){
         const square = document.createElement("div")
         square.classList.add("square")
         container.appendChild(square)
+        square.addEventListener("mouseenter", function (e) {
+            if (move === true){
+                startDrawing(e)
+            }
+        })
     }
 }
 
-makeSquares()
+function startDrawing(e) {
+    e.target.style.backgroundColor = "blue"
+}
+
+
