@@ -1,0 +1,27 @@
+/* styles */
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    display: inline-block;
+    max-width: 525px;
+    font-size: 0;
+}
+
+.square {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.square:hover{
+    background-color: blue;
+}
+
+.square:onClick
