@@ -1,20 +1,20 @@
 //script
 
-var defaultColor = "black"
+const defaultColor = "black"
+const defaultSize = 16
+let sizeIsNum = true
 
 const container = document.querySelector(".container")
-const clear = document.createElement("button")
-const resize = document.createElement("button")
-const erase = document.createElement("button")
-clear.textContent = "Clear"
-resize.textContent = "Resize"
-erase.textContent = "Erase"
+const clear = document.querySelector(".clear")
+const resize = document.querySelector(".resize")
+
 
 let move = false
-var size = 64
+var size = defaultSize
 var width = 500/size
-console.log(width)
 makeSquares(size)
+
+const allSquares = document.querySelector(".square")
 
 document.body.addEventListener("mousedown", () => {
     move = true
@@ -25,6 +25,7 @@ document.body.addEventListener("mouseup", () => {
 })
 
 function makeSquares(size){
+    width = 500/size
     for (let i = 0; i < (size * size); i++){
         const square = document.createElement("div")
         square.classList.add("square")
@@ -39,30 +40,29 @@ function makeSquares(size){
         })
         square.style.width = width + "px"
         square.style.height = width + "px"
-        menuButtons()
         
-
-        //clear action
-        clear.addEventListener("click", () => {
-            square.style.backgroundColor = "white"
-        })
     }
 }
+
+clear.addEventListener("click", () => {
+    container.innerHTML = " "
+    makeSquares(size)
+})
+
+resize.addEventListener("click", () => {
+    size = parseInt(Math.floor(prompt("Pick a size from 1-100")))
+    console.log(size)
+    if (size <= 100 && size >= 1){
+    container.innerHTML = " "
+    makeSquares(size)
+    return size
+    }
+    else 
+    container.innerHTML = " "
+    makeSquares(defaultSize)
+    return defaultSize
+})
 
 function startDrawing(e) {
     e.target.style.backgroundColor = defaultColor
 }
-
-function menuButtons(){
-    document.body.appendChild(erase).classList.add("menu")
-    document.body.appendChild(resize).classList.add("menu")
-    document.body.appendChild(clear).classList.add("menu")
-}
-
-//resize and erase actions
-resize.addEventListener("click", () => {
-    size = prompt("Pick a number")
-    const squares = document.getElementsByClassName("square")
-    squares.container.remove(squares)
-    makeSquares(size)
-})

@@ -27,8 +27,13 @@ header{
 
 .square {
     display: inline-block;
+    min-height: 1px;
+    min-width: 1px;
 }
 
-.button.menu {
+.menu {
     display: flex;
+    justify-content: center;
+    padding: 25px;
+    gap: 5px;
 }
