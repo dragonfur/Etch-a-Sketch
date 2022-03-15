@@ -10,30 +10,21 @@ clear.textContent = "Clear"
 resize.textContent = "Resize"
 erase.textContent = "Erase"
 
-const tds = document.querySelectorAll('.square');
-tds.forEach((square) => {
-  square.style.setProperty('--td-background-color', '#00ff00');
-});
-
 let move = false
 var size = 64
+var width = 500/size
+console.log(width)
 makeSquares(size)
 
-document.addEventListener("mousedown", () => {
+document.body.addEventListener("mousedown", () => {
     move = true
 })
 
-document.addEventListener("mouseup", () => {
+document.body.addEventListener("mouseup", () => {
     move = false
 })
 
-function boardSize() {
-    size = parseInt(Math.floor(prompt("Pick a number between 1-100.")))
-    makeSquares(size)
-}
-
 function makeSquares(size){
-    
     for (let i = 0; i < (size * size); i++){
         const square = document.createElement("div")
         square.classList.add("square")
@@ -46,8 +37,11 @@ function makeSquares(size){
                 startDrawing(e)
             }
         })
+        square.style.width = width + "px"
+        square.style.height = width + "px"
         menuButtons()
         
+
         //clear action
         clear.addEventListener("click", () => {
             square.style.backgroundColor = "white"
