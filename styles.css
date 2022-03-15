@@ -1,9 +1,17 @@
 /* styles */
 
+body{ height:100vh; margin:0; }
+
+header{ min-height:50px; }
+footer{ min-height:50px; background:PapayaWhip; }
+
 body {
     padding: 0;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: mistyrose;
+    display: flex;
+    flex-direction: column;
 }
 
 header{
@@ -21,8 +29,9 @@ header{
     max-width: 500px;
     max-height: 500px;
     font-size: 0;
-    box-shadow: 5px 3px 3px gray;
-
+    box-shadow: 5px 5px 5px 5px gray;
+    background-color: white;
+    animation: opacity 1s;
 }
 
 .square {
@@ -35,5 +44,34 @@ header{
     display: flex;
     justify-content: center;
     padding: 25px;
-    gap: 5px;
+    gap: 10px;
 }
+
+footer {
+    margin-top: auto;
+    padding-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    background-color: aliceblue;
+    border-style: none;
+    font-size: 25px;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+button:hover{
+    background-color: gray;
+    transform: scale(1.1);
+}
+
+@keyframes opacity {
+    0%   {opacity: 0}
+    25%  {opacity: 0.25}
+    50%  {opacity: 0.50}
+    75%  {opacity: 0.75}
+    100% {opacity: 1}
+  }

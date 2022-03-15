@@ -96,13 +96,12 @@ function reset(){
     isColor = true
     rainbowing = false
     erasing = false
+    rainbow.textContent = "Color"
 }
 
 clear.addEventListener("click", () => {
     container.innerHTML = " "
-    isColor = true
-    rainbowing = false
-    erasing = false
+    reset()
     makeSquares(size)
 })
 
